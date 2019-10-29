@@ -1,18 +1,16 @@
 ---
-- name: Configure repositories
-  block:
-    - name: "Add epel-release repository (RHEL)"
-      yum:
-        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-        state: "present"
-      when: ansible_distribution == 'RedHat'
 
-    - name: "Add epel-release repository (CentOS)"
-      yum:
-        name: "epel-release"
-        state: "latest"
-      when: ansible_distribution == 'CentOS'
-  when: install_rpm_repositories|bool
+- name: "Add epel-release repository (RHEL)"
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: "present"
+  when: ansible_distribution == 'RedHat'
+
+- name: "Add epel-release repository (CentOS)"
+  yum:
+    name: "epel-release"
+    state: "latest"
+  when: ansible_distribution == 'CentOS'
 
 - name: Install the nginx packages
   yum:
@@ -47,24 +45,25 @@
    - Restart nginx
   tags: [configuration,nginx]
 
-- name: Ensure auth_basic files created
-  template: src=auth_basic.j2 dest=/etc/nginx/auth_basic/{{ item }} owner=root group={{nginx_group}} mode=0750
-  with_items: "{{ nginx_auth_basic_files.keys() }}"
-  tags: [configuration,nginx]
+  ##- name: Ensure auth_basic files created
+  ##template: src=auth_basic.j2 dest=/etc/nginx/auth_basic/{{ item }} owner=root group={{nginx_group}} mode=0750
+  ## with_items: "{{ nginx_auth_basic_files.keys()|default({}) }}"
+  ##when: nginx_auth_basic_files is defined
+  ## tags: [configuration,nginx]
 
-- name: Create the configurations for sites
-  template: src=site.conf.j2 dest=/etc/nginx/sites-available/{{ item }}.conf
-  with_items: "{{ nginx_sites.keys() }}"
-  notify:
-   - Reload nginx
-  tags: [configuration,nginx]
+  #- name: Create the configurations for sites
+  #template: src=site.conf.j2 dest=/etc/nginx/sites-available/{{ item }}.conf
+  #with_items: "{{ nginx_sites.keys() }}"
+  #notify:
+  # - Reload nginx
+  #tags: [configuration,nginx]
 
-- name: Create links for sites-enabled
-  file: state=link src=/etc/nginx/sites-available/{{ item }}.conf dest=/etc/nginx/sites-enabled/{{ item }}.conf
-  with_items: "{{ nginx_sites.keys() }}"
-  notify:
-   - Reload nginx
-  tags: [configuration,nginx]
+  #- name: Create links for sites-enabled
+  #file: state=link src=/etc/nginx/sites-available/{{ item }}.conf dest=/etc/nginx/sites-enabled/{{ item }}.conf
+  #with_items: "{{ nginx_sites.keys() }}"
+  #notify:
+  # - Reload nginx
+  #tags: [configuration,nginx]
 
 - name: Disable the default site
   file: path=/etc/nginx/sites-enabled/default state=absent
@@ -73,12 +72,12 @@
    - Reload nginx
   tags: [configuration,nginx]
 
-- name: Create the configurations for independante config file
-  template: src=config.conf.j2 dest=/etc/nginx/conf.d/{{ item }}.conf
-  with_items: "{{ nginx_configs.keys() }}"
-  notify:
-   - Reload nginx
-  tags: [configuration,nginx]
+  #- name: Create the configurations for independante config file
+  #template: src=config.conf.j2 dest=/etc/nginx/conf.d/{{ item }}.conf
+  #with_items: "{{ nginx_configs.keys() }}"
+  #notify:
+  # - Reload nginx
+  #tags: [configuration,nginx]
 
 - name: Check nginx syntax of configuration files
   shell: nginx -t
