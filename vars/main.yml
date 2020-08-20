@@ -7,3 +7,9 @@ ubuntu_pkg:
   - python-passlib
   - python-selinux
   - nginx
+
+ubuntu_focal_pkg:
+  - python3-passlib
+  - python3-selinux
+  - python-is-python3
+  - nginx
