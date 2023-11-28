@@ -44,7 +44,7 @@ default_deny_sites:
      - error_log /dev/null  
 crypto_package: >-
   {%- if ansible_distribution == "Rocky" and ansible_distribution_major_version == "8" 
-      or ansible_distribution == "Ubuntu" and ansible_distribution_version == "22.04" -%}
+      or ansible_distribution == "Ubuntu" and ansible_distribution_version is version_compare('20.04', '>=') -%}
     python3-cryptography
   {%- else -%}
     python-cryptography
