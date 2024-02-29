@@ -42,7 +42,7 @@ nginx_bots_deny_list:
   - FriendlyCrawler
 
 nginx_bots_request_limit_user_agents_regex:
-  - (GoogleOther|Googlebot\/|Googlebot-Mobile|Googlebot-Image|Googlebot-News|Googlebot-Video|AdsBot-Google([^-]|$)|AdsBot-Google-Mobile|Feedfetcher-Google|Mediapartners-Google|Mediapartners\ \(Googlebot\)|APIs-Google|bingbot|Slurp|LinkedInBot|Python-urllib|python-requests|libwww-perl|httpunit|nutch|Go-http-client)
+  - (GoogleOther|Googlebot\/|Googlebot-Mobile|Googlebot-Image|Googlebot-News|Googlebot-Video|AdsBot-Google([^-]|$)|AdsBot-Google-Mobile|Feedfetcher-Google|Mediapartners-Google|Mediapartners\ \(Googlebot\)|APIs-Google|bingbot|Slurp|LinkedInBot|Python-urllib|libwww-perl|httpunit|nutch|Go-http-client)
   - (phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST\ Enterprise\ Crawler|BIGLOTRON|Teoma|convera|seekbot|Gigabot|Gigablast|exabot|ia_archiver|GingerCrawler|webmon\ |HTTrack|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|findlink|msrbot|panscient|yacybot|AISearchBot|ips-agent)
   - (tagoobot|MJ12bot|woriobot|yanga|buzzbot|mlbot|YandexBot|YandexImages|YandexAccessibilityBot|YandexMobileBot|purebot|Linguee\ Bot|CyberPatrol|voilabot|Baiduspider|citeseerxbot|spbot|twengabot|postrank|TurnitinBot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix)
   - (findthatfile|europarchive.org|NerdByNature.Bot|sistrix\ crawler|Ahrefs(Bot|SiteAudit)|fuelbot|CrunchBot|IndeedBot|mappydata|woobot|ZoominfoBot|PrivacyAwareBot|Multiviewbot|SWIMGBot|Grobbot|eright|Apercite|semanticbot|Aboundex|domaincrawler|wbsearchbot|summify|CCBot|edisterbot|seznambot|ec2linkfinder)
