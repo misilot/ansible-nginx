@@ -100,17 +100,17 @@
    - Reload nginx
   tags: [configuration,nginx]
 
-- include_tasks: "robots-txt.yml"
+- import_tasks: "robots-txt.yml"
   when:
     - "nginx_use_global_robots_txt|bool"
   tags: [nginx-global-robots-txt,nginx]
 
-- include_tasks: "badbots.yml"
+- import_tasks: "badbots.yml"
   when:
     - "nginx_use_bots_deny_list|bool"
   tags: [nginx-badbots,nginx]
 
-- include_tasks: "default-deny.yml"
+- import_tasks: "default-deny.yml"
   when: 
     - "nginx_use_default_deny | bool"
   tags: [configuration,nginx]
