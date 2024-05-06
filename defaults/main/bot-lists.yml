@@ -10,39 +10,60 @@ nginx_global_robots_txt:
 #  -  "User-agent: AdsBot-Google"
 
 nginx_bots_deny_list:
-  - baidu            # https://www.baidu.com/search/robots_english.html
   - ahrefs           # https://ahrefs.com/robot
-  - yandex         # https://yandex.com/support/webmaster/robot-workings/check-yandex-robots.html
-  - ezooms
-  - yahoo
-  - webmeup-crawler
-  - semrush
-  - mj12bot
-  - dotbot
-  - 360spider
-  - pagefreezer
-  - Dorkbot
-  - semanticscholar
+  - AhrefsBot
+  - Anthropic-ai
   - aspiegel
-  - PetalBot
-  - SeekportBot
-  - Honolulu-bot
-  - Timpibot
-  - GPTBot
+  - baidu            # https://www.baidu.com/search/robots_english.html
+  - Barkrowler
+  - BLEXBot
   - Brightbot
-  - AcademicBotRTU
   - Bytespider
-  - Turnitin
-  - thesis-research-bot
-  - fidget-spinner-bot
-  - my-tiny-bot
-  - GPTBot
-  - test-bot
-  - Java/11.0
-  - FriendlyCrawler
+  - CCBot
+  - CensysInspect
+  - ChatGPT-User
   - claudebot
+  - DataForSeoBot
+  - Dataprovider
+  - Dalvik/2.1.0
+  - dotbot
+  - Dorkbot
+  - ezooms
+  - Expanse
   - facebookexternalhit
+  - FacebookBot
+  - fidget-spinner-bot
+  - FriendlyCrawler
+  - GPTBot
+  - Google-Extended
+  - Honolulu-bot
+  - Image2dataset
   - ImagesiftBot
+  - internet-measurement
+  - IonCrawl
+  - ISSCyberRiskCrawler
+  - Java/11.0
+  - MJ12Bot
+  - Mozlila
+  - my-tiny-bot
+  - Omgilibot
+  - Orbbot
+  - pagefreezer
+  - PetalBot
+  - Scrapy
+  - semanticscholar
+  - semrush
+  - SeekportBot
+  - Timpibot
+  - test-bot
+  - thesis-research-bot
+  - Turnitin
+  - webmeup-crawler
+  - wp_is_mobile
+  - Yahoo
+  - yandex         # https://yandex.com/support/webmaster/robot-workings/check-yandex-robots.html
+  - ZoominfoBot
+
 
 nginx_bots_request_limit_user_agents_regex:
   - (GoogleOther|Googlebot\/|Googlebot-Mobile|Googlebot-Image|Googlebot-News|Googlebot-Video|AdsBot-Google([^-]|$)|AdsBot-Google-Mobile|Feedfetcher-Google|Mediapartners-Google|Mediapartners\ \(Googlebot\)|APIs-Google|bingbot|Slurp|LinkedInBot|Python-urllib|libwww-perl|httpunit|nutch|Go-http-client)
