@@ -1,8 +1,8 @@
-{{ ansible_managed | comment }}                                                                                        
+{{ ansible_managed | comment }}
 
-server { 
+server {
 {#- indent v by 2, including the first one #}
-{%- filter indent(2, true) %} 
+{%- filter indent(2, true) %}
 {% for v in nginx_sites[item] %}
   {%- if v != "" %} {#- if not an empty string #}
     {%- if v| regex_search('^\s*add_header') %} {#- if v has add_header #}
@@ -19,10 +19,10 @@ server {
 {% endfor %}
 
 {#- Don't add robots.txt when the server or virtualenv is a redirection to https #}
-{%- if nginx_use_global_robots_txt|bool and not nginx_sites[item]|join is match('.*return\s+30[0-9]\s+https.*') %}                    
+{%- if nginx_use_global_robots_txt|bool and not nginx_sites[item]|join is match('.*return\s+30[0-9]\s+https.*') %}
 location /robots.txt {
   alias /etc/nginx/robots.txt;
-}   
+}
 {% endif %}
 {% endfilter %}
 
